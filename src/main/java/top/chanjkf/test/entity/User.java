@@ -1,56 +1,30 @@
 package top.chanjkf.test.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.apache.commons.lang3.StringUtils;
+
+import java.util.Date;
+
 /**
  * Created by yi on 2018/3/23.
  */
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class User {
     private int id;
 
-    private String name;
+    private String userName;
 
-    private int age;
+    private String passWord;
 
-    private String gender;
+    private Date createdTime;
 
-    public int getId() {
-        return id;
-    }
+    private Date updatedTime;
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", age=" + age +
-                ", gender='" + gender + '\'' +
-                '}';
+    public boolean check() {
+        return !StringUtils.isAnyEmpty(this.userName, this.passWord);
     }
 }
